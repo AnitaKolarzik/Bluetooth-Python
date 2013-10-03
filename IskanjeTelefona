@@ -1,0 +1,26 @@
+# Python 2.7.
+
+import bluetooth
+
+imeNaprave = "Anita"
+naslovNaprave= None
+
+najdeneNaprave = bluetooth.discover_devices()
+
+print ("Najdene naprave: ")
+print (najdeneNaprave)
+
+for naprava in najdeneNaprave:
+    if imeNaprave == bluetooth.lookup_name(naprava):
+        naslovNaprave = naprava
+        break
+if naslovNaprave != None:
+    print ("Moja naprava: " + naslovNaprave)
+else:
+    print ("Ne najdem naprave.")
+
+
+#zagon:
+#    Najdene naprave:
+#    ['00:1D:28:78:49:0D', '00:26:08:CC:ED:5A', 'A8:7E:33:DF:DD:74', 'B8:F9:34:57:68:7F', 'B8:F9:34:D8:FA:90']
+#    Moja naprava: 00:1D:28:78:49:0D
